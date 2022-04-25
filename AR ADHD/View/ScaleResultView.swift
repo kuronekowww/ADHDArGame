@@ -16,8 +16,9 @@ struct ScaleResultView: View {
                 .lilacTitle()
             Text("Completed")
             
-            Text("Score1:\(questionController.subsetScore1)")
-            Text("Score2:\(questionController.subsetScore2)")
+            Text("Score1:\(questionController.subsetScore1) Rate:\(questionController.subsetRate1)")
+            Text("Score2:\(questionController.subsetScore2) Rate:\(questionController.subsetRate2))")
+            Text("Score3:\(questionController.subsetScore3) Rate:\(questionController.subsetRate3))")
             Button{
                 
             }label:{
