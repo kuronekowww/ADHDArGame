@@ -13,21 +13,25 @@ import Combine
 
 
 class GameController:ObservableObject{
+    //@StateObject private var dataController = DataController()
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var gameScores: FetchedResults<GameScore>
     public var arView :ARView = ARView(frame: .zero)
     public var score: Int = 0 {
         didSet {
             objectWillChange.send()
         }
     }
-    
+    @Published public var isGameOver = false
+    @Published public var timerStart = false
+    @Published public var timerCount : Int = 10
     
     private var anchor: AnchorEntity!
     private var cards: [Entity] = []
     private var cancellabel: AnyCancellable? = nil
-    private var objects : [ModelEntity] = []
+    private var objects: [ModelEntity] = []
     private var flipped: [Entity] = []
-
-    
+    private var gameResult = false
     
     init(){
         
@@ -56,7 +60,7 @@ class GameController:ObservableObject{
         // Auto Focus
         config.isAutoFocusEnabled = true
         
-        config.planeDetection = [.horizontal]
+        config.planeDetection = [.horizontal, .vertical]
         config.environmentTexturing = .automatic
         if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
             config.sceneReconstruction = .mesh
@@ -67,13 +71,13 @@ class GameController:ObservableObject{
         arView.session.run(config)
         
         // anchor for a horizontal plane for minimum 40cm * 40cm
-        self.anchor = AnchorEntity(plane: .horizontal, minimumBounds: [0.4, 0.4])
+        self.anchor = AnchorEntity(plane: .horizontal, minimumBounds: [0.5, 0.5])
         arView.scene.addAnchor(anchor)
         
         //var cards: [Entity]=[]
         for _ in 1...4 {  //创建卡片
-            let box = MeshResource.generateBox(width: 0.04, height: 0.002, depth: 0.04)
-            let metalMaterial = SimpleMaterial(color:.gray, isMetallic: true) //卡片颜色
+            let box = MeshResource.generateBox(width: 0.05, height: 0.002, depth: 0.05)
+            let metalMaterial = SimpleMaterial(color:.orange, isMetallic: true) //卡片颜色
             let model = ModelEntity(mesh: box, materials: [metalMaterial])
             
             model.generateCollisionShapes(recursive: true) //使卡片可触摸
@@ -100,6 +104,18 @@ class GameController:ObservableObject{
         
         print(score)
         
+        if (score >= 4){
+            
+            gameResult = true
+            gameOver(self.anchor, result:gameResult)
+            let waitSeconds = 10.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + waitSeconds, execute: {
+                self.removeAll()
+                self.isGameOver = true
+                print("game over")
+            })
+        }
+        
     }
     
     func flipCard(card: Entity){
@@ -121,7 +137,7 @@ class GameController:ObservableObject{
         // Get Hit Position
         let tapLocation = gesture.location(in: arView)
         print("Guesture Point Hit: \(tapLocation)")
-        
+        countDown()
         if let hitResult = arView.entity(at: tapLocation){
             print("hit \(hitResult.id)+\(hitResult.name)")
             
@@ -186,7 +202,14 @@ class GameController:ObservableObject{
         
         //var cancellabel: AnyCancellable? = nil
         self.cancellabel = ModelEntity.loadModelAsync(named: "model_1")
-            .append(ModelEntity.loadModelAsync(named:"model_2")) //加载模型
+            .append(ModelEntity.loadModelAsync(named:"model_2"))
+            //.append(ModelEntity.loadModelAsync(named:"model_3"))
+            //.append(ModelEntity.loadModelAsync(named:"model_4"))
+            //.append(ModelEntity.loadModelAsync(named:"model_5"))
+            //.append(ModelEntity.loadModelAsync(named:"model_6"))
+            //.append(ModelEntity.loadModelAsync(named:"model_7"))
+            //.append(ModelEntity.loadModelAsync(named:"model_8"))
+        //加载模型
             .collect()
             .sink(receiveCompletion: {error in
                   print("Error: \(error)")
@@ -225,6 +248,57 @@ class GameController:ObservableObject{
         print(dups)
         
         return Array(dups.map{$0})
+    }
+    
+    func removeAll() {
+        for anchor in arView.scene.anchors where anchor is AnchorEntity {
+            (anchor as? AnchorEntity)?.children.removeAll()
+        }
+    }
+    
+    func countDown(){
+        
+        if !timerStart{
+            timerStart = true
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true){ timer in
+                self.timerCount -= 1
+                if self.timerCount <= 0{
+                    timer.invalidate()
+                    self.gameOver(self.anchor, result:self.gameResult)
+                    let waitSeconds = 10.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + waitSeconds, execute: {
+                        self.removeAll()
+                        self.isGameOver = true
+                        print("game over")
+                    })
+                }
+            }
+        }
+        
+    }
+    
+
+    func gameOver(_ anchor: AnchorEntity, result: Bool){
+        
+        if !result{
+            let entity = try! GameCelebrate.loadLoseScene()
+            //entity.setScale(SIMD3<Float>(0.08, 0.08, 0.08), relativeTo: anchor)
+            self.anchor.addChild(entity)
+            entity.notifications.lose.post()
+        }
+        else
+        {
+            let entity = try! GameCelebrate.loadCelebrateScene()
+            //entity.setScale(SIMD3<Float>(0.08, 0.08, 0.08), relativeTo: anchor)
+            self.anchor.addChild(entity)
+            entity.notifications.celebrate.post()
+        }
+        
+        let gameScore = GameScore(context: moc)
+        gameScore.id = UUID()
+        gameScore.score = Int16(self.score)
+        print("save:\(gameScore.score)")
+        try? moc.save()
     }
 }
 

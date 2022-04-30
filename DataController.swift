@@ -11,7 +11,7 @@ import CoreData
 class DataController: ObservableObject{
     
     //load and save data
-    let container = NSPersistentContainer(name:"ADHDContainer")
+    let container = NSPersistentContainer(name:"ADHDModel")
     
     init(){
         container.loadPersistentStores{ description, error in

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject var questionController = QuestionController()
-    //@StateObject var gameController = GameController()
+    @StateObject var gameController = GameController()
+        //@StateObject private var dataController = DataController()
     var body: some View {
         
         NavigationView {
@@ -24,7 +25,7 @@ struct MenuView: View {
                     PrimaryButton(text:"Start")
                 }
                 NavigationLink {
-                   // *Ar游戏 ContentView().environmentObject(gameController)
+                    ContentView().environmentObject(gameController)
                 } label :{
                     PrimaryButton(text:"AR")
                 }

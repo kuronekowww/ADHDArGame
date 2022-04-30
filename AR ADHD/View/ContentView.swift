@@ -11,17 +11,24 @@ import Combine
 
 
 struct ContentView : View{
- 
+
+    //@StateObject private var dataController = DataController()
     @EnvironmentObject var gameController :GameController
+    @FetchRequest(sortDescriptors:[]) var scores: FetchedResults<GameScore>
     var body: some View{
+        if !gameController.isGameOver{
         VStack(alignment: .leading){
-            //Text("Score \(gameController.score)")
-            Text("Score")
+            Text("Time: \(gameController.timerCount)")
+            Text("Score:\(gameController.score)")
                 .background(.white)
                 .font(.title)
         ARGameViewContainer(gameController.arView)
         }
         .padding(.top)
+        } else{
+            GameResultView().environmentObject(gameController)
+                //.environment(\.managedObjectContext, dataController.container.viewContext)
+        }
     }
 }
 

@@ -11,7 +11,7 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    @StateObject private var dataController = DataController()
+    @StateObject public var dataController = DataController()
     //app启动时 加载数据
     var window: UIWindow?
 
@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = MenuView().environment(\.managedObjectContext,dataController.container.viewContext)
+        let contentView = MenuView()
+            .environment(\.managedObjectContext, dataController.container.viewContext)
 
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)
