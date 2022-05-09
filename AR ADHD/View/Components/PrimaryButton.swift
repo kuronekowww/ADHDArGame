@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PrimaryButton: View {
-    
+    @EnvironmentObject var gameController :GameController
     var text: String
     var background: Color = Color("AccentColor")
     
@@ -22,7 +22,11 @@ struct PrimaryButton: View {
             .shadow(radius:10)
         
     }
+    private func startGame(){
+        gameController.isGameOver = false
+    }
 }
+
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {

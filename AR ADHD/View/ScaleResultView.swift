@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ScaleResultView: View {
-    @EnvironmentObject var questionController :QuestionController
-    
+    @EnvironmentObject var questionController : QuestionController
     var body: some View {
         VStack(spacing: 20){
            Text("Scale")

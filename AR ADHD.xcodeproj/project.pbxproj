@@ -13,12 +13,15 @@
 		700AB75E2802B1D400BEE0B4 /* AR_ADHDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700AB75D2802B1D400BEE0B4 /* AR_ADHDTests.swift */; };
 		700AB7682802B1D400BEE0B4 /* AR_ADHDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700AB7672802B1D400BEE0B4 /* AR_ADHDUITests.swift */; };
 		700AB76A2802B1D400BEE0B4 /* AR_ADHDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700AB7692802B1D400BEE0B4 /* AR_ADHDUITestsLaunchTests.swift */; };
+		7034906C2823A03000499E93 /* GameDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034906B2823A03000499E93 /* GameDifficulty.swift */; };
+		7034906E2823A52600499E93 /* GameSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034906D2823A52600499E93 /* GameSelectorView.swift */; };
 		70643E0128111C06007AF582 /* AnswerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70643E0028111C06007AF582 /* AnswerRow.swift */; };
 		70643E0328111C46007AF582 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70643E0228111C46007AF582 /* Answer.swift */; };
 		70643E0528112F78007AF582 /* RatingScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70643E0428112F78007AF582 /* RatingScaleView.swift */; };
 		70643E0A28113ACF007AF582 /* ScaleQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70643E0928113ACF007AF582 /* ScaleQuestion.swift */; };
 		70643E15281144D5007AF582 /* QuestionADHD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70643E13281144D5007AF582 /* QuestionADHD+CoreDataClass.swift */; };
 		70643E182811498E007AF582 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70643E172811498E007AF582 /* DataController.swift */; };
+		70646D712827818300E888CF /* HistoryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70646D702827818300E888CF /* HistoryScoreView.swift */; };
 		7066BC322817E90A0073B0C5 /* ARGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705BA5E8280D72C700CCADBA /* ARGameViewModel.swift */; };
 		7066BC332817E9110073B0C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700AB74C2802B1D200BEE0B4 /* ContentView.swift */; };
 		707090FA281A5B5900B6C34C /* model_8.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 707090F9281A5B5900B6C34C /* model_8.usdz */; };
@@ -42,6 +45,7 @@
 		70D32930280FE083005C23FE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D3292F280FE083005C23FE /* Extensions.swift */; };
 		70D32932280FE259005C23FE /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D32931280FE259005C23FE /* QuestionView.swift */; };
 		70D32934280FE33B005C23FE /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D32933280FE33B005C23FE /* ProgressBar.swift */; };
+		70F91ADE2826500600B95C3B /* ScaleResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F91ADD2826500600B95C3B /* ScaleResultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,8 @@
 		700AB7632802B1D400BEE0B4 /* AR ADHDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR ADHDUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		700AB7672802B1D400BEE0B4 /* AR_ADHDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_ADHDUITests.swift; sourceTree = "<group>"; };
 		700AB7692802B1D400BEE0B4 /* AR_ADHDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_ADHDUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7034906B2823A03000499E93 /* GameDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDifficulty.swift; sourceTree = "<group>"; };
+		7034906D2823A52600499E93 /* GameSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectorView.swift; sourceTree = "<group>"; };
 		705BA5E8280D72C700CCADBA /* ARGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGameViewModel.swift; sourceTree = "<group>"; };
 		70643E0028111C06007AF582 /* AnswerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRow.swift; sourceTree = "<group>"; };
 		70643E0228111C46007AF582 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 		70643E0928113ACF007AF582 /* ScaleQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleQuestion.swift; sourceTree = "<group>"; };
 		70643E13281144D5007AF582 /* QuestionADHD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionADHD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		70643E172811498E007AF582 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		70646D702827818300E888CF /* HistoryScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScoreView.swift; sourceTree = "<group>"; };
 		707090F9281A5B5900B6C34C /* model_8.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = model_8.usdz; sourceTree = "<group>"; };
 		707090FB281A5B7000B6C34C /* model_9.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = model_9.usdz; sourceTree = "<group>"; };
 		707090FC281A5B7000B6C34C /* model_10.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = model_10.usdz; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 		70D3292F280FE083005C23FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		70D32931280FE259005C23FE /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		70D32933280FE33B005C23FE /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		70F91ADD2826500600B95C3B /* ScaleResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleResultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,9 +212,11 @@
 			isa = PBXGroup;
 			children = (
 				70D3292D280FD463005C23FE /* MenuView.swift */,
+				7034906D2823A52600499E93 /* GameSelectorView.swift */,
 				700AB74C2802B1D200BEE0B4 /* ContentView.swift */,
 				70709111281A73F900B6C34C /* GameResultView.swift */,
 				70643E0428112F78007AF582 /* RatingScaleView.swift */,
+				70646D702827818300E888CF /* HistoryScoreView.swift */,
 				70D32931280FE259005C23FE /* QuestionView.swift */,
 				70D21F0B28167431005CF110 /* ScaleResultView.swift */,
 				70D32935280FE84E005C23FE /* Components */,
@@ -228,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				705BA5E8280D72C700CCADBA /* ARGameViewModel.swift */,
+				70F91ADD2826500600B95C3B /* ScaleResultViewModel.swift */,
+				7034906B2823A03000499E93 /* GameDifficulty.swift */,
 				70643E0228111C46007AF582 /* Answer.swift */,
 				70A041772814045000CBC8D6 /* QuestionToScale.swift */,
 				70643E0928113ACF007AF582 /* ScaleQuestion.swift */,
@@ -379,11 +391,15 @@
 				70B943E5281CFCD200A6B351 /* ADHDModel.xcdatamodeld in Sources */,
 				70D3292E280FD463005C23FE /* MenuView.swift in Sources */,
 				70A041782814045000CBC8D6 /* QuestionToScale.swift in Sources */,
+				7034906E2823A52600499E93 /* GameSelectorView.swift in Sources */,
+				70F91ADE2826500600B95C3B /* ScaleResultViewModel.swift in Sources */,
 				70D21F0C28167431005CF110 /* ScaleResultView.swift in Sources */,
+				7034906C2823A03000499E93 /* GameDifficulty.swift in Sources */,
 				70643E0128111C06007AF582 /* AnswerRow.swift in Sources */,
 				70643E0528112F78007AF582 /* RatingScaleView.swift in Sources */,
 				70D32930280FE083005C23FE /* Extensions.swift in Sources */,
 				70D32932280FE259005C23FE /* QuestionView.swift in Sources */,
+				70646D712827818300E888CF /* HistoryScoreView.swift in Sources */,
 				7066BC322817E90A0073B0C5 /* ARGameViewModel.swift in Sources */,
 				70D32934280FE33B005C23FE /* ProgressBar.swift in Sources */,
 				70643E0A28113ACF007AF582 /* ScaleQuestion.swift in Sources */,

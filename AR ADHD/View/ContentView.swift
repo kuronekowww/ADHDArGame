@@ -13,6 +13,7 @@ import Combine
 struct ContentView : View{
 
     //@StateObject private var dataController = DataController()
+    //@Environment(\.managedObjectContext) var moc
     @EnvironmentObject var gameController :GameController
     @FetchRequest(sortDescriptors:[]) var scores: FetchedResults<GameScore>
     var body: some View{
@@ -23,11 +24,12 @@ struct ContentView : View{
                 .background(.white)
                 .font(.title)
         ARGameViewContainer(gameController.arView)
+                .edgesIgnoringSafeArea(.all)
         }
         .padding(.top)
+        .navigationBarHidden(true)
         } else{
             GameResultView().environmentObject(gameController)
-                //.environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

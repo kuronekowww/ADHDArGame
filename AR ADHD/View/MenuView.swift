@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject var questionController = QuestionController()
-    @StateObject var gameController = GameController()
+    //@StateObject private var dataController = DataController()
+    //@StateObject var gameController = GameController()
         //@StateObject private var dataController = DataController()
     var body: some View {
         
@@ -22,18 +23,28 @@ struct MenuView: View {
                 NavigationLink {
                     RatingScaleView().environmentObject(questionController)
                 } label :{
-                    PrimaryButton(text:"Start")
+                    PrimaryButton(text:"StartQuiz")
                 }
                 NavigationLink {
-                    ContentView().environmentObject(gameController)
+                    GameSelectorView()
+                        //.environment(\.managedObjectContext, dataController.container.viewContext)
                 } label :{
-                    PrimaryButton(text:"AR")
+                    PrimaryButton(text:"ARgame")
                 }
+                /*
+                Button(action: {
+                    gameController.isGameOver = false
+                    gameController.score = 0
+                },label: {
+                    PrimaryButton(text:"resetGame")
+                })
+                */
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
         .background(Color("BackgroundColor"))
         }
+        .navigationViewStyle(.stack)
     }
 }
 

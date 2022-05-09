@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Create the SwiftUI view that provides the window contents.
+        //let viewContext = DataController.shared.persistentStoreContainer.viewContext
         let contentView = MenuView()
             .environment(\.managedObjectContext, dataController.container.viewContext)
 
@@ -52,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+/*
 //MARK: Core Data Saving Support
 class PersistentContainer: NSPersistentContainer {
 
@@ -65,3 +67,4 @@ class PersistentContainer: NSPersistentContainer {
         }
     }
 }
+*/

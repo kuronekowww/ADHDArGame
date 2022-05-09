@@ -12,7 +12,4 @@ struct Answer:Identifiable {
     var text: String
     var point: Int
     
-
-
-
 }
