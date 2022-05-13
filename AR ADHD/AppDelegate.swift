@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         //let viewContext = DataController.shared.persistentStoreContainer.viewContext
-        let contentView = MenuView()
+        let contentView = MainView()
             .environment(\.managedObjectContext, dataController.container.viewContext)
 
         // Use a UIHostingController as window root view controller.

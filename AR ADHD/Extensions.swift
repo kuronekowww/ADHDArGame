@@ -9,10 +9,19 @@ import Foundation
 import SwiftUI
 
 extension Text{
-    func lilacTitle() -> some View{
+    
+    func sectionTitle() -> some View{
+        //For sections in menuview
+        self.font(.largeTitle)
+            .fontWeight(.bold)
+            .foregroundColor(.accentColor)
+    }
+    
+    func sectionNote() -> some View{
         
-        self.font(.title)
-            .fontWeight(.heavy)
-            .foregroundColor(Color("AccentColor"))
+        self.font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundColor(.secondary)
+        
     }
 }
