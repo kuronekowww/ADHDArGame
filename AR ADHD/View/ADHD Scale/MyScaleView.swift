@@ -1,15 +1,15 @@
 //
-//  ScaleResultView.swift
+//  MyScaleView.swift
 //  AR ADHD
 //
-//  Created by  王佳鸣 on 2022/4/25.
+//  Created by  王佳鸣 on 2022/5/13.
 //
 
 import SwiftUI
 
-struct ScaleResultView: View {
-    @EnvironmentObject var questionController : QuestionController
-    @Environment(\.presentationMode) var presentationMode
+struct MyScaleView: View {
+    @FetchRequest(sortDescriptors: []) var scaleRates: FetchedResults<ScaleRate>
+    
     
     var body: some View {
         VStack(spacing: 20){
@@ -24,12 +24,12 @@ struct ScaleResultView: View {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth:.infinity,alignment: .leading)
                 HStack(spacing:40) {
-                    Text("Score: \(questionController.subsetScore1)")
+                    Text("Score: \(scaleRates[(scaleRates.endIndex)-1].score1)")
                         .font(.title2)
                         .fontWeight(.light)
                         .foregroundColor(.indigo).multilineTextAlignment(.center)
                         .padding(.top, 2)
-                    Text("Rate:\(questionController.subsetRate1)")
+                    Text("Rate:\(scaleRates[(scaleRates.endIndex)-1].rate1 ?? "Default")")
                         .font(.title2)
                         .fontWeight(.light)
                         .foregroundColor(.indigo).multilineTextAlignment(.center)
@@ -50,12 +50,12 @@ struct ScaleResultView: View {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth:.infinity,alignment: .leading)
                 HStack(spacing:40) {
-                    Text("Score: \(questionController.subsetScore2)")
+                    Text("Score: \(scaleRates[(scaleRates.endIndex)-1].score2)")
                         .font(.title2)
                         .fontWeight(.light)
                         .foregroundColor(.indigo)
                         .padding(.top, 2)
-                    Text("Rate:\(questionController.subsetRate2)")
+                    Text("Rate:\(scaleRates[(scaleRates.endIndex)-1].rate2 ?? "Default")")
                         .font(.title2)
                         .fontWeight(.light)
                         .foregroundColor(.indigo)
@@ -76,12 +76,12 @@ struct ScaleResultView: View {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth:.infinity,alignment: .leading)
                 HStack(spacing:40) {
-                    Text("Score: \(questionController.subsetScore3)")
+                    Text("Score: \(scaleRates[(scaleRates.endIndex)-1].score3 )")
                         .font(.title2)
                         .fontWeight(.light)
                         .foregroundColor(.indigo).multilineTextAlignment(.center)
                         .padding(.top, 2)
-                    Text("Rate:\(questionController.subsetRate3)")
+                    Text("Rate:\(scaleRates[(scaleRates.endIndex)-1].rate3 ?? "Default")")
                         .font(.title2)
                         .fontWeight(.light)
                         .foregroundColor(.indigo).multilineTextAlignment(.center)
@@ -122,8 +122,8 @@ struct ScaleResultView: View {
     }
 }
 
-struct ScaleResultView_Previews: PreviewProvider {
+struct MyScaleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScaleResultView().environmentObject(QuestionController())
+        MyScaleView()
     }
 }

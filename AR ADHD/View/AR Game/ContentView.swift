@@ -15,18 +15,33 @@ struct ContentView : View{
     //@StateObject private var dataController = DataController()
     //@Environment(\.managedObjectContext) var moc
     @EnvironmentObject var gameController :GameController
-    @FetchRequest(sortDescriptors:[]) var scores: FetchedResults<GameScore>
+    //@FetchRequest(sortDescriptors:[]) var scores: FetchedResults<GameScore>
+    
     var body: some View{
         if !gameController.isGameOver{
-        VStack(alignment: .leading){
-            Text("Time: \(gameController.timerCount)")
-            Text("Score:\(gameController.score)")
-                .background(.white)
-                .font(.title)
+        VStack{
         ARGameViewContainer(gameController.arView)
                 .edgesIgnoringSafeArea(.all)
         }
-        .padding(.top)
+        //.padding(.top)
+        .edgesIgnoringSafeArea(.all)
+        .overlay(
+            ZStack{
+                Color.clear
+                    .background(.ultraThinMaterial)
+                Text("Time: \(gameController.timerCount)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
+                Text("Score:\(gameController.score)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 200)
+            }
+            .frame(height: 70)
+            .frame(maxHeight: .infinity, alignment: .top))
         .navigationBarHidden(true)
         } else{
             GameResultView().environmentObject(gameController)

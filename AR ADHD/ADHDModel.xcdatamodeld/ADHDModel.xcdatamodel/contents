@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="ADHDModel">
     <entity name="GameScore" representedClassName=".GameScore" syncable="YES" codeGenerationType="class">
+        <attribute name="historyLevel" optional="YES" attributeType="String"/>
         <attribute name="historyScore" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="userName" optional="YES" attributeType="String"/>
+    <entity name="ScaleRate" representedClassName=".ScaleRate" syncable="YES" codeGenerationType="class">
+        <attribute name="rate1" optional="YES" attributeType="String"/>
+        <attribute name="rate2" optional="YES" attributeType="String"/>
+        <attribute name="rate3" optional="YES" attributeType="String"/>
+        <attribute name="score1" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score2" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score3" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="GameScore" positionX="-63" positionY="-18" width="128" height="59"/>
-        <element name="User" positionX="-63" positionY="0" width="128" height="59"/>
+        <element name="GameScore" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="ScaleRate" positionX="-63" positionY="0" width="128" height="119"/>
     </elements>
 </model>

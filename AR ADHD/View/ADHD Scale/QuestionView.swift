@@ -10,7 +10,8 @@ import SwiftUI
 struct QuestionView: View {
     @EnvironmentObject var questionController :QuestionController
     //load question
-
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack(spacing:20){
             HStack(){
@@ -29,7 +30,9 @@ struct QuestionView: View {
                 Text(questionController.question)
                     .font(.system(size:20))
                     .bold()
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
+                    .frame(height: 100)
+                    .padding(.leading, 10)
                 ForEach(questionController.answerChoices, id:\.id){
                     answer in AnswerRow(answer: answer).environmentObject(questionController)
                 }
@@ -51,11 +54,12 @@ struct QuestionView: View {
                     .disabled(!questionController.answerSelected)
 
             }
+            .padding(.top, 20)
             Spacer()
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Image("TestingBackground"))
+        .background(Image("waveBackground"))
         .navigationBarHidden(true)
     }
     

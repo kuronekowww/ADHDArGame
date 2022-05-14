@@ -18,7 +18,7 @@ struct IntroductionView: View {
             }
             .frame(maxWidth: .infinity)
             .background(
-            Image("StarBackground")
+            Image("starBackground")
                 .matchedGeometryEffect(id: "background", in: namespace))
             .mask(RoundedRectangle(cornerRadius: 20,style: .continuous)
             .matchedGeometryEffect(id: "mask", in: namespace))
@@ -30,7 +30,10 @@ struct IntroductionView: View {
                         .fontWeight(.bold)
                         .matchedGeometryEffect(id: "title", in: namespace)
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    Text("The SNAP-IV 26-item scale is an abbreviated version of the Swanson, Nolan, and Pelham (SNAP) Questionnaire (Swanson, 1992; Swanson et al., 1983). Items from the DSM-IV criteria for attention-deficit/hyperactivity disorder (ADHD) are included for the two subsets of symptoms: Inattention (items 1–9) and Hyperactivity/Impulsivity (items 10– 18). Also, items from the DSM-IV criteria for oppositional defiant disorder (ODD) are included (items 19–26) because ODD is often present in children wit")
+                    Text("ADHD rating scales are an essential tool for diagnosis, evaluation and monitoring of the symptoms of attention deficit hyperactivity disorder in children.")
+                        .font(.body)
+
+                         Text("The SNAP-IV 26-item scale is an abbreviated version of the Swanson, Nolan, and Pelham (SNAP) Questionnaire (Swanson, 1992; Swanson et al., 1983). Items from the DSM-IV criteria for attention-deficit/hyperactivity disorder (ADHD) are included for the two subsets of symptoms: Inattention (items 1–9) and Hyperactivity/Impulsivity (items 10– 18). Also, items from the DSM-IV criteria for oppositional defiant disorder (ODD) are included (items 19–26) because ODD is often present in children wit")
                         .font(.body)
                     
                 }
@@ -57,7 +60,7 @@ struct IntroductionView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
             .padding(20)
-            .ignoresSafeArea()
+            //.ignoresSafeArea()
         }
     }
 }

@@ -47,7 +47,7 @@ struct MatchedView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(
-                Image("StarBackground")
+                Image("starBackground")
                     .matchedGeometryEffect(id: "background", in: namespace))
                 .mask(RoundedRectangle(cornerRadius: 20,style: .continuous)
                 .matchedGeometryEffect(id: "mask", in: namespace))

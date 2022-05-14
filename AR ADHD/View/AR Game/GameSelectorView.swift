@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct GameSelectorView: View {
-    //@StateObject var gameController = GameController()
+    @StateObject var gameController = GameController()
     @State var gameDifficulty : String = "EASY"
     @State public var selectedTab = 0
     
+    func switchTab(){
+        switch selectedTab{
+        case 0: gameController.isGameOver = false
+                gameController.score = 0
+                gameController.gameDifficulty = .easy
+        case 1: gameController.isGameOver = false
+                gameController.score = 0
+                gameController.gameDifficulty = .medium
+        case 2: gameController.isGameOver = false
+                gameController.score = 0
+                gameController.gameDifficulty = .hard
+        default: gameController.isGameOver = false
+                gameController.score = 0
+                gameController.gameDifficulty = .easy
+        }
+        print(gameDifficulty)
+    }
+    
     var body: some View {
+        NavigationView{
             VStack{
                 TabView(selection: $selectedTab) {
                     GameSelection(gamelevel: gameLevels[0])
@@ -54,25 +73,33 @@ struct GameSelectorView: View {
                 })
                 */
                 NavigationLink {
-                    //ContentView().environmentObject(gameController)
+                    ContentView().environmentObject(gameController)
+                        .onAppear{ switchTab() }
                 } label :{
-                    PrimaryButton(text:"StartGame!")
-                }.onTapGesture {
-                    switch selectedTab{
-                    case 0: gameDifficulty = "EASY"
-                    case 1: gameDifficulty = "Normal"
-                    case 2: gameDifficulty = "hard"
-                    default: gameDifficulty = "EASY"
-                    }
-                    print(gameDifficulty)
+                        PrimaryButton(text:"Start")
                 }
+                
+                .padding(.top, 40)
+                
+                NavigationLink {
+                    HistoryScoreView()
+                } label :{
+                    PrimaryButton(text:"Myscore")
+                }
+                .padding(.top, 40)
                 //Spacer()
             }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Image("gameSelectBackground2")
                         .resizable())
-        .overlay(NavigationBar(title:"Game Level"))
-    .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.all)
+        .overlay(
+            NavigationBar(title:"Select Game Difficulty")
+                .foregroundColor(.white)
+        )
+    }
+        .navigationViewStyle(.stack)
+    //.edgesIgnoringSafeArea(.all)
     }
 }
 

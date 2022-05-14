@@ -17,10 +17,9 @@ struct NavigationBar: View {
             
             Text(title)
             .font(.largeTitle)
-            .foregroundColor(.white)
             .fontWeight(.bold)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 20)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.trailing, 20)
         }
             .frame(height: 70)
             .frame(maxHeight: .infinity, alignment: .top)

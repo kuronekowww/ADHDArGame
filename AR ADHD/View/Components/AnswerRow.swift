@@ -20,12 +20,13 @@ struct AnswerRow: View {
             
             Text(answer.text)
                 .bold()
-            
+            /*
             if isSelected{
                 Spacer()
                 
                 Image(systemName: "checkmark.circle.fill")
                 .foregroundColor(.green)            }
+            */
         }
         .padding()
         .frame(maxWidth:.infinity,alignment: .leading)

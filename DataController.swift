@@ -22,6 +22,22 @@ class DataController: ObservableObject{
                                           print("Successfully load core Data")
                                         }
         }
+        
+        do{
+        let currentRate = ScaleRate(context: self.container.viewContext)
+                currentRate.score1 = Int16(0)
+                currentRate.rate1 = "Default"
+                currentRate.score2 = Int16(0)
+                currentRate.rate2 = "Default"
+                currentRate.score3 = Int16(0)
+                currentRate.rate3 = "Default"
+                try self.container.viewContext.save()
+        }
+        catch{
+            print (error.localizedDescription)
+        }
+
+        
     }
     
     

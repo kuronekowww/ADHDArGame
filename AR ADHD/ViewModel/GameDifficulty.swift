@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum GameDifficulty{
-    case easy
-    case medium
-    case hard
+enum GameDifficulty: String{
+    case easy = "EASY"
+    case medium = "NORMAL"
+    case hard = "HARD"
 }

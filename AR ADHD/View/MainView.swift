@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     @AppStorage("selectedtab") var selectedTab: Tab = .main
+    @StateObject var questionController = QuestionController()
+    //@StateObject var gameController = GameController()
+    //@StateObject private var dataController = DataController()
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             Group{
@@ -18,7 +22,7 @@ struct MainView: View {
                 case .game:
                 GameSelectorView()
                 case .profile:
-                RatingScaleView()
+                MyScaleView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
