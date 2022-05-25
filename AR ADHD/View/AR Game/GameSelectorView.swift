@@ -9,25 +9,25 @@ import SwiftUI
 
 struct GameSelectorView: View {
     @StateObject var gameController = GameController()
-    @State var gameDifficulty : String = "EASY"
+    //@State var gameDifficulty : String = "EASY"
     @State public var selectedTab = 0
     
     func switchTab(){
         switch selectedTab{
         case 0: gameController.isGameOver = false
                 gameController.score = 0
-                gameController.gameDifficulty = .easy
+                gameController.gameDifficulty = .EASY
         case 1: gameController.isGameOver = false
                 gameController.score = 0
-                gameController.gameDifficulty = .medium
+                gameController.gameDifficulty = .NORMAL
         case 2: gameController.isGameOver = false
                 gameController.score = 0
-                gameController.gameDifficulty = .hard
+                gameController.gameDifficulty = .HARD
         default: gameController.isGameOver = false
                 gameController.score = 0
-                gameController.gameDifficulty = .easy
+                gameController.gameDifficulty = .EASY
         }
-        print(gameDifficulty)
+        //print(gameDifficulty)
     }
     
     var body: some View {
@@ -52,6 +52,9 @@ struct GameSelectorView: View {
                                 .resizable(resizingMode: .stretch)
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .foregroundColor(.white))
+                .onTapGesture{switchTab()
+                print(gameController.gameDifficulty.rawValue)
+            }
                 /*
                 Button(action: {
                     /*
@@ -73,10 +76,14 @@ struct GameSelectorView: View {
                 })
                 */
                 NavigationLink {
-                    ContentView().environmentObject(gameController)
-                        .onAppear{ switchTab() }
+                    LazyView(ContentView().environmentObject(gameController))
+                    /*
+                        .onAppear{ switchTab()
+                            print(gameController.gameDifficulty.rawValue)
+                        }
+                     */
                 } label :{
-                        PrimaryButton(text:"Start")
+                    PrimaryButton(text:"Start")
                 }
                 
                 .padding(.top, 40)
@@ -84,7 +91,7 @@ struct GameSelectorView: View {
                 NavigationLink {
                     HistoryScoreView()
                 } label :{
-                    PrimaryButton(text:"Myscore")
+                    PrimaryButton(text:"History Score")
                 }
                 .padding(.top, 40)
                 //Spacer()
@@ -96,6 +103,7 @@ struct GameSelectorView: View {
         .overlay(
             NavigationBar(title:"Select Game Difficulty")
                 .foregroundColor(.white)
+                .offset(y:-100)
         )
     }
         .navigationViewStyle(.stack)

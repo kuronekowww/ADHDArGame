@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700120A7283A01ED00D641A4 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700120A6283A01ED00D641A4 /* LazyView.swift */; };
 		700645B3282BA13D001B7673 /* SlideSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700645B2282BA13D001B7673 /* SlideSelector.swift */; };
 		700AB74B2802B1D200BEE0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700AB74A2802B1D200BEE0B4 /* AppDelegate.swift */; };
 		700AB7512802B1D300BEE0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 700AB7502802B1D300BEE0B4 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		700120A6283A01ED00D641A4 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		700645B2282BA13D001B7673 /* SlideSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideSelector.swift; sourceTree = "<group>"; };
 		700AB7472802B1D200BEE0B4 /* AR ADHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR ADHD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		700AB74A2802B1D200BEE0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				705BA5E8280D72C700CCADBA /* ARGameViewModel.swift */,
 				7034906B2823A03000499E93 /* GameDifficulty.swift */,
+				700120A6283A01ED00D641A4 /* LazyView.swift */,
 				70643E0228111C46007AF582 /* Answer.swift */,
 				70A041772814045000CBC8D6 /* QuestionToScale.swift */,
 				70643E0928113ACF007AF582 /* ScaleQuestion.swift */,
@@ -464,6 +467,7 @@
 				70A8D7A2282E9863007FEC53 /* MyScaleView.swift in Sources */,
 				70D3292B280FD30E005C23FE /* PrimaryButton.swift in Sources */,
 				709A1EE7282BA90200D7F6CD /* GameLevel.swift in Sources */,
+				700120A7283A01ED00D641A4 /* LazyView.swift in Sources */,
 				7047E5F0282FB6D5000993D5 /* ContentView.swift in Sources */,
 				700AB74B2802B1D200BEE0B4 /* AppDelegate.swift in Sources */,
 				70643E15281144D5007AF582 /* QuestionADHD+CoreDataClass.swift in Sources */,

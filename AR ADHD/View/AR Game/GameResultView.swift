@@ -23,7 +23,8 @@ struct GameResultView: View {
         do{
             let currentScore = GameScore(context: moc)
             currentScore.historyScore = Int16(gameController.score)
-            currentScore.historyLevel = gameController.gameDifficulty.rawValue
+            let transLevel = gameController.gameDifficulty
+            currentScore.historyLevel = "NORMAL"
             currentScore.id = UUID()
             try moc.save()
             print("successfully save score")

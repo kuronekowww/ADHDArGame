@@ -27,7 +27,7 @@ class GameController:ObservableObject{
     @Published public var isGameOver = false
     @Published public var timerStart = false
     @Published public var timerCount : Int = 10
-    @Published public var gameDifficulty = GameDifficulty.easy
+    @Published public var gameDifficulty = GameDifficulty.EASY
     
     private var cardNumber = 4
     private var cardPosition = 2
@@ -88,15 +88,15 @@ class GameController:ObservableObject{
      
     func configureGameDifficulty(level: GameDifficulty){
         switch level{
-        case .easy:
+        case .EASY:
             cardNumber = 4
             cardPosition = 2
             timerCount = 10
-        case .medium:
+        case .NORMAL:
             cardNumber = 16
             cardPosition = 4
             timerCount = 30
-        case .hard:
+        case .HARD:
             cardNumber = 16
             cardPosition = 4
             timerCount = 60
@@ -119,9 +119,11 @@ class GameController:ObservableObject{
         flipped = []
         gameResult = false
         timerStart = false
-        timerCount = 10
+        timerCount = 8
         score = 0
-        self.configureGameDifficulty(level: gameDifficulty)
+        
+        configureGameDifficulty(level: gameDifficulty)
+        print("configure \(gameDifficulty.rawValue)")
         
         for _ in 1...cardNumber {  //创建卡片
             let box = MeshResource.generateBox(width: 0.05, height: 0.002, depth: 0.05)
